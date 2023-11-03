@@ -83,9 +83,9 @@ def FieldArgToId(arg):
         return None
     if arg in NAME_TO_ID:
         return NAME_TO_ID[arg]
-    if arg + "_ms" in NAME_TO_ID:
-        return NAME_TO_ID[arg + "_ms"]
-    raise Exception("Unrecognized field name \"{}\"".format(arg))
+    if f"{arg}_ms" in NAME_TO_ID:
+        return NAME_TO_ID[f"{arg}_ms"]
+    raise Exception(f'Unrecognized field name \"{arg}\"')
 
 
 class PlotLine(object):
@@ -109,25 +109,23 @@ class Data(object):
 
     def _ReadSamples(self, filename):
         """Reads graph data from the given file."""
-        f = open(filename)
-        it = iter(f)
+        with open(filename) as f:
+            it = iter(f)
 
-        self.title = it.next().strip()
-        self.length = int(it.next())
-        field_names = [name.strip() for name in it.next().split()]
-        field_ids = [NAME_TO_ID[name] for name in field_names]
+            self.title = it.next().strip()
+            self.length = int(it.next())
+            field_names = [name.strip() for name in it.next().split()]
+            field_ids = [NAME_TO_ID[name] for name in field_names]
 
-        for field_id in field_ids:
-            self.samples[field_id] = [0.0] * self.length
+            for field_id in field_ids:
+                self.samples[field_id] = [0.0] * self.length
 
-        for sample_id in xrange(self.length):
-            for col, value in enumerate(it.next().split()):
-                self.samples[field_ids[col]][sample_id] = float(value)
+            for sample_id in xrange(self.length):
+                for col, value in enumerate(it.next().split()):
+                    self.samples[field_ids[col]][sample_id] = float(value)
 
-        self._SubtractFirstInputTime()
-        self._GenerateAdditionalData()
-
-        f.close()
+            self._SubtractFirstInputTime()
+            self._GenerateAdditionalData()
 
     def _SubtractFirstInputTime(self):
         offset = self.samples[INPUT_TIME][0]
@@ -181,8 +179,12 @@ class Data(object):
                 values = self._Hide(values)
 
             target_lines_list.append(
-                PlotLine(self.title + " " + ID_TO_TITLE[field_id], values,
-                         field & ~FIELD_MASK))
+                PlotLine(
+                    f"{self.title} {ID_TO_TITLE[field_id]}",
+                    values,
+                    field & ~FIELD_MASK,
+                )
+            )
 
 
 def AverageOverCycle(values, length):
@@ -397,18 +399,8 @@ def _PlotConfigFromArgs(args, graph_num):
     for key, values in args:
         if key == "cycle_length":
             cycle_length = values[0]
-        elif key == "frames":
-            frames = values[0]
-        elif key == "offset":
-            offset = values[0]
-        elif key == "output_filename":
-            output_filename = values[0]
-        elif key == "title":
-            title = values[0]
         elif key == "drop":
             mask |= HIDE_DROPPED
-        elif key == "right":
-            mask |= RIGHT_Y_AXIS
         elif key == "field":
             field_id = FieldArgToId(values[0])
             fields.append(field_id | mask if field_id is not None else None)
@@ -416,12 +408,20 @@ def _PlotConfigFromArgs(args, graph_num):
         elif key == "files":
             files.extend(values)
 
+        elif key == "frames":
+            frames = values[0]
+        elif key == "offset":
+            offset = values[0]
+        elif key == "output_filename":
+            output_filename = values[0]
+        elif key == "right":
+            mask |= RIGHT_Y_AXIS
+        elif key == "title":
+            title = values[0]
     if not files:
-        raise Exception(
-            "Missing file argument(s) for graph #{}".format(graph_num))
+        raise Exception(f"Missing file argument(s) for graph #{graph_num}")
     if not fields:
-        raise Exception(
-            "Missing field argument(s) for graph #{}".format(graph_num))
+        raise Exception(f"Missing field argument(s) for graph #{graph_num}")
 
     return PlotConfig(fields,
                       LoadFiles(files),
@@ -440,7 +440,7 @@ def PlotConfigsFromArgs(args):
     #   argparse.ArgumentParser, modified to remember the order of arguments.
     #   Then we traverse the argument list and fill the PlotConfig.
     args = itertools.groupby(args, lambda x: x in ["-n", "--next"])
-    prep_args = list(list(group) for match, group in args if not match)
+    prep_args = [list(group) for match, group in args if not match]
 
     parser = GetParser()
     plot_configs = []

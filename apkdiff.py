@@ -35,19 +35,19 @@ def compare(first, second):
 				secondFile = secondZip.open(secondInfo, 'r')
 
 				if compareFiles(firstFile, secondFile) != True:
-					print("APK file %s does not match" % firstInfo.filename)
+					print(f"APK file {firstInfo.filename} does not match")
 					return False
 
 				secondList.remove(secondInfo)
 				break
 
 		if found == False:
-			print("file %s not found in second APK" % firstInfo.filename)
+			print(f"file {firstInfo.filename} not found in second APK")
 			return False
 
-	if len(secondList) != 0:
+	if secondList:
 		for secondInfo in secondList:
-			print("file %s not found in first APK" % secondInfo.filename)
+			print(f"file {secondInfo.filename} not found in first APK")
 		return False
 
 	return True

@@ -14,9 +14,7 @@ def compareFiles(first, second):
     return True
 
 def remove_prefix(text, prefix):
-    if text.startswith(prefix):
-        return text[len(prefix):]
-    return text
+    return text[len(prefix):] if text.startswith(prefix) else text
 
 def compareApkFromBundle(bundle, apk):
     FILES_TO_IGNORE = ["resources.arsc", "stamp-cert-sha256"]
@@ -49,12 +47,12 @@ def compareApkFromBundle(bundle, apk):
                 firstFile = apkZip.open(apkInfo, 'r')
                 secondFile = bundleZip.open(bundleInfo, 'r')
                 if compareFiles(firstFile, secondFile) != True:
-                    print("APK file %s does not match" % apkInfo.filename)
+                    print(f"APK file {apkInfo.filename} does not match")
                     return False
                 break
 
         if found == False:
-            print("file %s not found in APK" % apkInfo.filename)
+            print(f"file {apkInfo.filename} not found in APK")
             return False
 
     return True

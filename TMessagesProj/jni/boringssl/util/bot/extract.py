@@ -68,7 +68,7 @@ def IterateTar(path, compression):
   IterateTar opens the tar.gz or tar.bz2 file at path and returns a generator of
   entry objects for each file in it.
   """
-  with tarfile.open(path, 'r:' + compression) as tar_file:
+  with tarfile.open(path, f'r:{compression}') as tar_file:
     for info in tar_file:
       if info.isdir():
         pass
@@ -77,7 +77,7 @@ def IterateTar(path, compression):
       elif info.isfile():
         yield FileEntry(info.name, info.mode, tar_file.extractfile(info))
       else:
-        raise ValueError('Unknown entry type "%s"' % (info.name, ))
+        raise ValueError(f'Unknown entry type "{info.name}"')
 
 
 def main(args):

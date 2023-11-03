@@ -247,8 +247,7 @@ class GTestXMLOutputUnitTest(gtest_xml_test_utils.GTestXMLTestCase):
     # parse the expected datetime manually.
     match = re.match(r'(\d+)-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)', date_time_str)
     self.assertTrue(
-        re.match,
-        'XML datettime string %s has incorrect format' % date_time_str)
+        re.match, f'XML datettime string {date_time_str} has incorrect format')
     date_time_from_xml = datetime.datetime(
         year=int(match.group(1)), month=int(match.group(2)),
         day=int(match.group(3)), hour=int(match.group(4)),
@@ -256,8 +255,10 @@ class GTestXMLOutputUnitTest(gtest_xml_test_utils.GTestXMLTestCase):
 
     time_delta = abs(datetime.datetime.now() - date_time_from_xml)
     # timestamp value should be near the current local time
-    self.assertTrue(time_delta < datetime.timedelta(seconds=600),
-                    'time_delta is %s' % time_delta)
+    self.assertTrue(
+        time_delta < datetime.timedelta(seconds=600),
+        f'time_delta is {time_delta}',
+    )
     actual.unlink()
 
   def testDefaultOutputFile(self):
@@ -277,8 +278,9 @@ class GTestXMLOutputUnitTest(gtest_xml_test_utils.GTestXMLTestCase):
         raise
 
     p = gtest_test_utils.Subprocess(
-        [gtest_prog_path, '%s=xml' % GTEST_OUTPUT_FLAG],
-        working_dir=gtest_test_utils.GetTempDir())
+        [gtest_prog_path, f'{GTEST_OUTPUT_FLAG}=xml'],
+        working_dir=gtest_test_utils.GetTempDir(),
+    )
     self.assert_(p.exited)
     self.assertEquals(0, p.exit_code)
     self.assert_(os.path.isfile(output_file))
@@ -290,13 +292,15 @@ class GTestXMLOutputUnitTest(gtest_xml_test_utils.GTestXMLTestCase):
     """
 
     xml_path = os.path.join(gtest_test_utils.GetTempDir(),
-                            GTEST_PROGRAM_NAME + 'out.xml')
+                            f'{GTEST_PROGRAM_NAME}out.xml')
     if os.path.isfile(xml_path):
       os.remove(xml_path)
 
-    command = [GTEST_PROGRAM_PATH,
-               '%s=xml:%s' % (GTEST_OUTPUT_FLAG, xml_path),
-               '--shut_down_xml']
+    command = [
+        GTEST_PROGRAM_PATH,
+        f'{GTEST_OUTPUT_FLAG}=xml:{xml_path}',
+        '--shut_down_xml',
+    ]
     p = gtest_test_utils.Subprocess(command)
     if p.terminated_by_signal:
       # p.signal is available only if p.terminated_by_signal is True.
@@ -319,8 +323,12 @@ class GTestXMLOutputUnitTest(gtest_xml_test_utils.GTestXMLTestCase):
     non-selected tests do not show up in the XML output.
     """
 
-    self._TestXmlOutput(GTEST_PROGRAM_NAME, EXPECTED_FILTERED_TEST_XML, 0,
-                        extra_args=['%s=SuccessfulTest.*' % GTEST_FILTER_FLAG])
+    self._TestXmlOutput(
+        GTEST_PROGRAM_NAME,
+        EXPECTED_FILTERED_TEST_XML,
+        0,
+        extra_args=[f'{GTEST_FILTER_FLAG}=SuccessfulTest.*'],
+    )
 
   def testShardedTestXmlOutput(self):
     """Verifies XML output when run using multiple shards.
@@ -343,11 +351,10 @@ class GTestXMLOutputUnitTest(gtest_xml_test_utils.GTestXMLTestCase):
     Furthermore, the program's exit code must be expected_exit_code.
     """
     xml_path = os.path.join(gtest_test_utils.GetTempDir(),
-                            gtest_prog_name + 'out.xml')
+                            f'{gtest_prog_name}out.xml')
     gtest_prog_path = gtest_test_utils.GetTestExecutablePath(gtest_prog_name)
 
-    command = ([gtest_prog_path, '%s=xml:%s' % (GTEST_OUTPUT_FLAG, xml_path)] +
-               extra_args)
+    command = [gtest_prog_path, f'{GTEST_OUTPUT_FLAG}=xml:{xml_path}'] + extra_args
     environ_copy = os.environ.copy()
     if extra_env:
       environ_copy.update(extra_env)
@@ -358,12 +365,12 @@ class GTestXMLOutputUnitTest(gtest_xml_test_utils.GTestXMLTestCase):
                    '%s was killed by signal %d' % (gtest_prog_name, p.signal))
     else:
       self.assert_(p.exited)
-      self.assertEquals(expected_exit_code, p.exit_code,
-                        "'%s' exited with code %s, which doesn't match "
-                        'the expected exit code %s.'
-                        % (command, p.exit_code, expected_exit_code))
-    actual = minidom.parse(xml_path)
-    return actual
+      self.assertEquals(
+          expected_exit_code,
+          p.exit_code,
+          f"'{command}' exited with code {p.exit_code}, which doesn't match the expected exit code {expected_exit_code}.",
+      )
+    return minidom.parse(xml_path)
 
   def _TestXmlOutput(self, gtest_prog_name, expected_xml,
                      expected_exit_code, extra_args=None, extra_env=None):

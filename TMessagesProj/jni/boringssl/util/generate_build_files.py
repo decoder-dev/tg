@@ -112,8 +112,7 @@ class Android(object):
       for ((osname, arch), asm_files) in asm_outputs:
         if osname != 'linux':
           continue
-        self.PrintVariableSection(
-            makefile, '%s_%s_sources' % (osname, arch), asm_files)
+        self.PrintVariableSection(makefile, f'{osname}_{arch}_sources', asm_files)
 
   def PrintDefaults(self, blueprint, name, files, asm_outputs={}):
     """Print a cc_defaults section from a list of C files and optionally assembly outputs"""
@@ -209,8 +208,7 @@ class AndroidCMake(object):
       self.PrintVariableSection(out, 'ssl_test_sources', files['ssl_test'])
 
       for ((osname, arch), asm_files) in asm_outputs:
-        self.PrintVariableSection(
-            out, 'crypto_sources_%s_%s' % (osname, arch), asm_files)
+        self.PrintVariableSection(out, f'crypto_sources_{osname}_{arch}', asm_files)
 
 
 class Bazel(object):
@@ -250,8 +248,7 @@ class Bazel(object):
       self.PrintVariableSection(out, 'tool_headers', files['tool_headers'])
 
       for ((osname, arch), asm_files) in asm_outputs:
-        self.PrintVariableSection(
-            out, 'crypto_sources_%s_%s' % (osname, arch), asm_files)
+        self.PrintVariableSection(out, f'crypto_sources_{osname}_{arch}', asm_files)
 
     with open('BUILD.generated_tests.bzl', 'w+') as out:
       out.write(self.header)
@@ -314,8 +311,7 @@ class Eureka(object):
       for ((osname, arch), asm_files) in asm_outputs:
         if osname != 'linux':
           continue
-        self.PrintVariableSection(
-            makefile, '%s_%s_sources' % (osname, arch), asm_files)
+        self.PrintVariableSection(makefile, f'{osname}_{arch}_sources', asm_files)
 
 
 class GN(object):
@@ -355,8 +351,7 @@ class GN(object):
       self.PrintVariableSection(out, 'ssl_headers', files['ssl_headers'])
 
       for ((osname, arch), asm_files) in asm_outputs:
-        self.PrintVariableSection(
-            out, 'crypto_sources_%s_%s' % (osname, arch), asm_files)
+        self.PrintVariableSection(out, f'crypto_sources_{osname}_{arch}', asm_files)
 
       fuzzers = [os.path.splitext(os.path.basename(fuzzer))[0]
                  for fuzzer in files['fuzz']]
@@ -406,8 +401,8 @@ class GYP(object):
                                 files['crypto_internal_headers'])
 
       for ((osname, arch), asm_files) in asm_outputs:
-        self.PrintVariableSection(gypi, 'boringssl_%s_%s_sources' %
-                                  (osname, arch), asm_files)
+        self.PrintVariableSection(gypi, f'boringssl_{osname}_{arch}_sources',
+                                  asm_files)
 
       gypi.write('  }\n}\n')
 
@@ -417,10 +412,9 @@ def FindCMakeFiles(directory):
   cmakefiles = []
 
   for (path, _, filenames) in os.walk(directory):
-    for filename in filenames:
-      if filename == 'CMakeLists.txt':
-        cmakefiles.append(os.path.join(path, filename))
-
+    cmakefiles.extend(
+        os.path.join(path, filename) for filename in filenames
+        if filename == 'CMakeLists.txt')
   return cmakefiles
 
 def OnlyFIPSFragments(path, dent, is_dir):
@@ -435,17 +429,13 @@ def NoTestsNorFIPSFragments(path, dent, is_dir):
 def NoTests(path, dent, is_dir):
   """Filter function that can be passed to FindCFiles in order to remove test
   sources."""
-  if is_dir:
-    return dent != 'test'
-  return 'test.' not in dent
+  return dent != 'test' if is_dir else 'test.' not in dent
 
 
 def OnlyTests(path, dent, is_dir):
   """Filter function that can be passed to FindCFiles in order to remove
   non-test sources."""
-  if is_dir:
-    return dent != 'test'
-  return '_test.' in dent
+  return dent != 'test' if is_dir else '_test.' in dent
 
 
 def AllFiles(path, dent, is_dir):
@@ -519,11 +509,11 @@ def ExtractPerlAsmFromCMakeFile(cmakefile):
       if not line.startswith('perlasm('):
         continue
       if not line.endswith(')'):
-        raise ValueError('Bad perlasm line in %s' % cmakefile)
+        raise ValueError(f'Bad perlasm line in {cmakefile}')
       # Remove "perlasm(" from start and ")" from end
       params = line[8:-1].split()
       if len(params) < 2:
-        raise ValueError('Bad perlasm line in %s' % cmakefile)
+        raise ValueError(f'Bad perlasm line in {cmakefile}')
       perlasms.append({
           'extra_args': params[2:],
           'input': os.path.join(os.path.dirname(cmakefile), params[1]),
@@ -560,7 +550,7 @@ def ArchForAsmFilename(filename):
 
   if 'x86_64' in filename or 'avx2' in filename:
     return ['x86_64']
-  elif ('x86' in filename and 'x86_64' not in filename) or '586' in filename:
+  elif 'x86' in filename or '586' in filename:
     return ['x86']
   elif 'armx' in filename:
     return ['arm', 'aarch64']
@@ -571,7 +561,7 @@ def ArchForAsmFilename(filename):
   elif 'ppc' in filename:
     return ['ppc64le']
   else:
-    raise ValueError('Unknown arch for asm filename: ' + filename)
+    raise ValueError(f'Unknown arch for asm filename: {filename}')
 
 
 def WriteAsmFiles(perlasms):
@@ -588,7 +578,7 @@ def WriteAsmFiles(perlasms):
       filename = os.path.basename(perlasm['input'])
       output = perlasm['output']
       if not output.startswith('src'):
-        raise ValueError('output missing src: %s' % output)
+        raise ValueError(f'output missing src: {output}')
       output = os.path.join(outDir, output[4:])
       if output.endswith('-armx.${ASM_EXT}'):
         output = output.replace('-armx',
@@ -701,6 +691,7 @@ def main(platforms):
 
   def NotSSLHeaderFiles(path, filename, is_dir):
     return not SSLHeaderFiles(path, filename, is_dir)
+
   crypto_h_files = (
       FindHeaderFiles(
           os.path.join('src', 'include', 'openssl'),
@@ -718,7 +709,8 @@ def main(platforms):
       'crypto_headers': crypto_h_files,
       'crypto_internal_headers': crypto_internal_h_files,
       'crypto_test': sorted(crypto_test_files),
-      'crypto_test_data': sorted('src/' + x for x in cmake['CRYPTO_TEST_DATA']),
+      'crypto_test_data':
+      sorted(f'src/{x}' for x in cmake['CRYPTO_TEST_DATA']),
       'fips_fragments': fips_fragments,
       'fuzz': fuzz_c_files,
       'ssl': ssl_source_files,

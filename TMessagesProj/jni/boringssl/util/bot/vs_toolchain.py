@@ -55,13 +55,13 @@ def SetEnvironmentAndGetRuntimeDllDirs():
     # values there.
     gyp_defines_dict = gyp.NameValueListToDict(gyp.ShlexEnv('GYP_DEFINES'))
     gyp_defines_dict['windows_sdk_path'] = win_sdk
-    os.environ['GYP_DEFINES'] = ' '.join('%s=%s' % (k, pipes.quote(str(v)))
-        for k, v in gyp_defines_dict.iteritems())
+    os.environ['GYP_DEFINES'] = ' '.join(
+        f'{k}={pipes.quote(str(v))}' for k, v in gyp_defines_dict.iteritems())
     os.environ['WINDOWSSDKDIR'] = win_sdk
     os.environ['WDK_DIR'] = wdk
     # Include the VS runtime in the PATH in case it's not machine-installed.
     runtime_path = ';'.join(vs_runtime_dll_dirs)
-    os.environ['PATH'] = runtime_path + ';' + os.environ['PATH']
+    os.environ['PATH'] = f'{runtime_path};' + os.environ['PATH']
   return vs_runtime_dll_dirs
 
 
@@ -91,7 +91,7 @@ def _GetDesiredVsToolchainHashes():
     # Debuggers, and 10.0.17134 version of d3dcompiler_47.dll, with ARM64
     # libraries.
     return ['418b3076791776573a815eb298c8aa590307af63']
-  raise Exception('Unsupported VS version %s' % env_version)
+  raise Exception(f'Unsupported VS version {env_version}')
 
 
 def Update():
