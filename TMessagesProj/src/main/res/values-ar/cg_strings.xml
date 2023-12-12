@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- by t.me/arsLan-->
+    <!--Telegram screens-->
+    <!--Sign in screen-->
+    <string name="CG_TestBackendNumber">إختبار رقم</string>
+    <string name="CG_TestBackendOn">سيقوم هذا الحساب بالاتصال بواجهة الإختبار الخلفية.</string>
+    <string name="CG_TestBackendOff">سيتصل هذا الحساب بالخلفية الإنتاجية.</string>
+    <!--Sign in screen-->
+    <!--Telegram Folders Settings-->
+    <string name="CG_FoldersType_Header">نوع التبويب</string>
+    <string name="CG_FoldersTypeTitles">العناوين فقط</string>
+    <string name="CG_FoldersTypeIcons">أيقونات فقط</string>
+    <string name="CG_FoldersTypeIconsTitles">أيقونات مع العناوين</string>
+    <string name="CG_ChooseFolderIcon">اختر أيقونة</string>
+    <string name="CP_NewTabs_NoCounter">إخفاء العداد في التبويب</string>
+    <string name="CP_NewTabs_NoCounter_Desc">سيؤدي هذا إلى إخفاء عداد الرسائل غير المقروءة</string>
+    <!--Telegram Folders Settings-->
+    <!--Chats screen-->
+    <string name="CG_JumpToBeginning">إلى البداية</string>
+    <string name="CG_DeleteAllFromSelf">حذف رسائلي</string>
+    <string name="CG_DeleteAllFromSelfAlert">تحذير! هذا سوف **يحذف جميع الرسائل الخاصة بك** في هذه الدردشة **لجميع** المشاركين.</string>
+    <string name="CG_DeleteAllFromSelfAdmin">مع حقوق المسؤول</string>
+    <string name="CG_DeleteAllFromSelfDone">تم حذف جميع رسائلك</string>
+    <string name="CG_ClearFromCache">مسح من ذاكرة التخزين المؤقت</string>
+    <string name="CG_ClearedFromCache">تم مسح من ذاكرة التخزين المؤقت</string>
+    <string name="CG_ViewUserHistory">سجل الرسائل</string>
+    <string name="CG_ToSaved">حفظ الرسالة</string>
+    <string name="CG_CreateMention">إنشاء إشارة </string>
+    <string name="CG_FwdMenu_EnableNoForward">تعطيل إظهار إسم المرسل</string>
+    <string name="CG_FwdMenu_DisableNoForward">تمكين إظهار إسم المرسل</string>
+    <string name="CG_Without_Authorship">توجيه من غير إسم</string>
+    <string name="CG_FwdMenu_NoNotify">إرسال صامت</string>
+    <string name="CG_FwdMenu_Notify">إرسال صامت</string>
+    <string name="CG_FwdMenu_EnableCaptions">تفعيل الوصف</string>
+    <string name="CG_FwdMenu_DisableCaptions">إخفاء الوصف</string>
+    <!--Chats screen-->
+    <!--Misc-->
+    <string name="LS_EnterPasscode">أدخل رمز مرور Cherrygram الخاص بك</string>
+    <string name="CG_SwitchBackend">أنت ذاهب للتبديل إلى خادم الاختبار. من فضلك لا تضغط على موافق إذا كنت لا تعرف ما تفعله. يمكنك التبديل إلى الخادم العادي عن طريق الضغط على \"تبديل الخلفية\" في قائمة التصحيح مرة أخرى.</string>
+    <string name="CG_Restart">إعادة تشغيل التطبيق</string>
+    <string name="CG_RestartToApply">إعد تشغيل التطبيق لتطبيق التغييرات.</string>
+    <string name="CG_PushService">Cherrygram Push Service</string>
+    <string name="CG_ForceClean">إجبار مسح ذاكرة التخزين المؤقت</string>
+    <string name="CG_ForceCleanInfo">استخدم هذا إذا واجهت عبارة \"جارِ التنظيف\" لوقت طويل عند محاولة تنظيف ذاكرة التخزين المؤقت. سيؤدي هذا إلى حذف كل شيء من ذاكرة التخزين المؤقت - كن حذرًا!</string>
+    <string name="CG_ForceCleanInfo1">هل تريد حقا حذف كل شيء من ذاكرة التخزين المؤقت من تيليجرام ؟</string>
+    <string name="CG_Kaboom">يمكن الوصول إلى هذه الميزة بدون كلمة مرور Cherrygram ،من خلال إعدادات النظام. هذه الميزة تمحو تماما كل ما تبذلونه من البيانات المحلية (Cherrygram). يمكن استخدامه في حالات الطوارئ.</string>
+    <string name="CG_AppCrashed">حدث خطأ ما</string>
+    <string name="CG_AppCrashedDesc">توقف Cherrygram عن العمل. يرجى إرسال السجلات إلى المطورين حتى يتمكنوا من إصلاح هذا الخطأ في أقرب وقت ممكن.</string>
+    <string name="CG_CopyReportDetails">نسخ تفاصيل التقرير</string>
+    <string name="CG_ReportDetailsCopied">تم نسخ تفاصيل التقرير إلى الحافظة.</string>
+    <string name="CG_TranslationLanguage">لغة الترجمة</string>
+    <string name="CG_SaveSticker">حفظ الملصق</string>
+    <string name="CG_StickerSavedHint">تم حفظ الملصق في التنزيلات</string>
+    <!--Misc-->
+    <!--Telegram screens-->
+    <!--Cherrygram screens-->
+    <!--Cherrygram Preferences-->
+    <string name="CGP_AdvancedSettings">Cherrygram إعدادات</string>
+    <string name="CGP_About_Desc">تعديل تطبيق تيليجرام التجريبي.</string>
+    <string name="CGP_Header_About">حول Cherrygram</string>
+    <string name="CGP_ToChannel">القناة الرسمية</string>
+    <string name="CGP_ToChat">الدردشة الرسمية</string>
+    <string name="CGP_Source">شفرة المصدر</string>
+    <string name="CGP_Crowdin">المساعدة في الترجمة</string>
+    <string name="CGP_Header_Categories">الفئات</string>
+    <!--Cherrygram Preferences-->
+    <!--General Preferences-->
+    <string name="AP_Header_General">عام</string>
+    <!--General Preferences-->
+    <!--Appearance Preferences-->
+    <string name="AP_Header_Appearance">المظهر</string>
+    <string name="AP_RedesignCategory">إعادة التصميم</string>
+    <string name="AP_IconReplacements">استبدال الأيقونات</string>
+    <string name="AP_Old_Notification_Icon">رمز الاشعارات الافتراضي (تيليجرام)</string>
+    <string name="AP_ChangeIconFilter">إستخدام أيقونة تيليجرام</string>
+    <string name="AP_ChangeIconFilter_Desc">يجب عليك إعادة إدخال هذا القسم لرؤية الرموز الجديدة</string>
+    <string name="AP_ChangeIcon_Default">افتراضي</string>
+    <string name="AP_ChangeIcon_Dark">داكن</string>
+    <string name="AP_ChangeIcon_White">أبيض</string>
+    <string name="AP_ChangeIcon_Green">الأخضر</string>
+    <string name="AP_ChangeIcon_Sunset">الغروب</string>
+    <string name="AP_ChangeIcon_Sunrise">الشروق</string>
+    <string name="AP_IconReplacement_VKUI">أيقونات VKUI</string>
+    <string name="AP_IconReplacement_Solar">أيقونات شمسية من @Design480</string>
+    <string name="AP_IconReplacement_Default">افتراضي</string>
+    <string name="AP_SystemEmoji">استخدم الرموز التعبيرية للنظام</string>
+    <string name="AP_CenterTitle">عنوان المركز في شريط العمل</string>
+    <string name="AP_ToolBarShadow">تعطيل ضل شريط الأدوات</string>
+    <string name="AP_SystemFonts">أستخدم خطوط النظام</string>
+    <string name="CP_Snowflakes_Header">الثلج (إعادة تشغيل التطبيق لتطبيق)</string>
+    <string name="CP_PremAndAnim_Header">الرسوم المتحركة والميزات المدفوعة (إعد تشغيل التطبيق للتطبيق)</string>
+    <string name="CP_DisableAnimAvatars">تعطيل الصور الرمزية المتحركة</string>
+    <string name="CP_DisableReactionsOverlay">تعطيل تراكب ردود الأفعال</string>
+    <string name="CP_DisableReactionsOverlay_Desc">سيؤدي هذا إلى تعطيل التراكب المنبثق مع التفاعلات المتاحة</string>
+    <string name="CP_DisableReactionAnim">تعطيل ردود فعل الرسوم المتحركة</string>
+    <string name="CP_DisableReactionAnim_Desc">(عند الرد على رسالة)</string>
+    <string name="CP_DisablePremiumStatuses">تعطيل الحالات المميزة</string>
+    <string name="CP_DisablePremiumStatuses_Desc">سيؤدي هذا إلى تعطيل الحالات المميزه في كل مكان، باستثناء القائمة الجانبية (الدرج)</string>
+    <string name="CP_DisablePremStickAnim">تعطيل النقر على الملصقات المميزة</string>
+    <string name="CP_DisablePremStickAnim_Desc">لن يحدث شيء إذا قمت بالنقر على ملصق بريميوم</string>
+    <string name="CP_DisablePremStickAutoPlay">تعطيل التشغيل التلقائي للملصقات المميزه</string>
+    <string name="CP_DisablePremStickAutoPlay_Desc">لن يتم تشغيل الرسوم المتحركة للملصقات المميزة تلقائيًا (لن تعمل الميزة إذا قمت بتعطيل النقرات على الملصقات المميزة)</string>
+    <string name="CP_Filters_Header">المجلدات (إعد تشغيل التطبيق)</string>
+    <string name="AP_FolderNameInHeader">اسم المجلد بدلا من \"Cherrygram\"</string>
+    <string name="AP_FolderNameInHeader_Desc">سيؤدي هذا إلى تغيير \" Cherrygram\ \" في شريط الإجراءات إلى اسم المجلد الخاص بك (مفيد إذا كان لديك أيقونات فقط بدلا من أسماء المجلدات)</string>
+    <string name="CP_NewTabs_RemoveAllChats">إخفاء تبويب \"الكل\"</string>
+    <string name="AP_Tab_Style">نمط المجلد</string>
+    <string name="AP_Tab_Style_Default">افتراضي</string>
+    <string name="AP_Tab_Style_Rounded">مدور</string>
+    <string name="AP_Tab_Style_Text">نص</string>
+    <string name="AP_Tab_Style_Pills">أقراص</string>
+    <string name="AP_DrawerCategory">الشريط الجانبي</string>
+    <string name="AP_DrawerPreferences">أيقونات الشريط الجانبي</string>
+    <string name="AP_DrawerAvatar">صورة الملف الشخصي كخلفية شريط الجاني</string>
+    <string name="AP_DrawerShowAvatar">إظهار الصورة الرمزية</string>
+    <string name="AP_DrawerDarken">خلفية داكنة</string>
+    <string name="AP_ShadeBackground">خلفية متدرجة</string>
+    <string name="AP_DrawerBlur">خلفية ضبابية</string>
+    <string name="AP_DrawerBlurIntensity">شدة الضبابية</string>
+    <string name="AP_DrawerIconPack_Header">مجموعة أيقونات الشريط الجانبي</string>
+    <string name="AP_DrawerButtonsCategory">أزرار الشريط الجانبي</string>
+    <string name="AP_ProfileCategory">الملف الشخصي وجهات الاتصال</string>
+    <string name="AP_HideUserPhone">إخفاء رقم هاتفي</string>
+    <string name="AP_HideUserPhoneSummary">في الشريط الجانبي والإعدادات</string>
+    <string name="AP_MutualContacts_Description">هذا هو جهات الاتصال المتبادلة.</string>
+    <string name="AP_ShowID">إظهار ID في الملف الشخصي</string>
+    <!--Appearance Preferences-->
+    <!--Chats Preferences-->
+    <string name="CP_Header_Chats">المحادثات</string>
+    <string name="CP_Slider_StickerAmplifier">حجم الملصق</string>
+    <string name="CP_BlockSomeSets">كتل بعض الملصقات</string>
+    <string name="CP_BlockSomeSets_Desc">سيتم استبدال بعض الملصقات التي تجبر تعطل التطبيق بشعار Cherrygram. \nملف \"Cherrygram Logo\" سيتم تنزيله بعد تمكين الميزة وإعادة تشغيل التطبيق.</string>
+    <string name="CP_TimeOnStick">إخفاء الوقت على الملصقات في المحادثات</string>
+    <string name="CP_UnreadBadgeOnBackButton">إظهار عداد المحادثات غير المقروءة</string>
+    <string name="CP_UnreadBadgeOnBackButton_Desc">تمكين عداد المحادثات غير المقروءة على زر الرجوع في المحادثات المفتوحة</string>
+    <string name="CP_NoRounding">تعطيل تقريب الأرقام</string>
+    <string name="CP_DeleteForAll">استخدم\" حذف للجميع \" افتراضيا</string>
+    <string name="CP_DeleteForAll_Desc">سيتم تحديد خانة الاختيار تلقائيا أثناء حذف الرسائل.</string>
+    <string name="CP_ConfirmCalls">اسأل قبل الاتصال</string>
+    <string name="CP_ForwardMsgDate">إظهار تاريخ الرسالة المعاد توجيهها</string>
+    <string name="CP_ShowSeconds">إظهار الثواني في الطوابع الزمنية</string>
+    <string name="CP_DoubleTapAction">انقر نقرًا مزدوجًا</string>
+    <string name="CP_DisableSwipeToNext">تعطيل الانتقال إلى القناة التالية</string>
+    <string name="CP_DisableSwipeToNext_Desc">تعطيل التبديل إلى القناة التالية عند التمرير عبر أي قناة</string>
+    <string name="CP_HideKbdOnScroll">إخفاء لوحة المفاتيح على التمرير</string>
+    <string name="CP_HideSendAsChannel">إخفاء \"إرسال كقناة\"</string>
+    <string name="CP_Slider_RecentEmojisAmplifier">الرموز التعبيرية الأخيرة (إعد تشغيل التطبيق)</string>
+    <string name="CP_Slider_RecentStickersAmplifier">ملصقات الأخيرة (إعد تشغيل التطبيق)</string>
+    <string name="CP_Header_Record">الوسائط</string>
+    <string name="CP_VoiceEnhancements">تحسين الصوت</string>
+    <string name="CP_VoiceEnhancements_Desc">التقليل من الضوضاء و جعل الصوت طبيعي</string>
+    <string name="CP_PlayVideo">تشغيل الفيديو عند النقر على زر التحكم في الصوت</string>
+    <string name="CP_PlayVideo_Desc">عند الضغط على زر التحكم في الصوت ، سيتم تشغيل أي فيديو على الشاشة في الدردشة</string>
+    <string name="CP_AutoPauseVideo">إيقاف تشغيل الفيديو</string>
+    <string name="CP_AutoPauseVideo_Desc">عند قفل الشاشة أو التبديل إلى الخلفية</string>
+    <string name="CP_DisableVibration">تعطيل الاهتزاز</string>
+    <string name="CP_Header_Notification">الأشعارات</string>
+    <string name="CP_SilenceNonContacts">إصمات المحادثات الغير مسجلة كجهات اتصال</string>
+    <string name="CP_SilenceNonContacts_Desc">في حالة التمكين ، ستأتي الإشعارات ذات الصوت فقط من جهات الاتصال. يمكنك إضافة شخص إلى جهات الاتصال الخاصة بك حتى بدون رقم هاتف ، قم بذلك في ملفه الشخصي</string>
+    <!--Chats Preferences-->
+    <!--Camera Preferences-->
+    <string name="CP_Category_Camera">الكاميرا</string>
+    <string name="CP_CameraType">نوع الكاميرا</string>
+    <string name="CP_CameraTypeDefault">افتراضي</string>
+    <string name="CP_DefaultCameraDesc">استخدام الكاميرا تيليجرام المدمجة</string>
+    <string name="CP_CameraXDesc">CameraX مدعوم فقط على <![CDATA[<a href="https://developer.android.com/training/camerax/devices">الأجهزة المحددة</a>]]>، يعتمد دعم المؤثرات وعدسات على الشركة المصنعة الخاصة بك.</string>
+    <string name="CP_PerformanceMode">وضع الأداء</string>
+    <string name="CP_PerformanceModeDesc">سيتم خفض جودة CameraX لصالح الأداء</string>
+    <string name="CP_CameraQuality">جودة الكاميرا</string>
+    <string name="CP_CameraTypeSystem">النظام</string>
+    <string name="CP_SystemCameraDesc">الوصول مباشرة إلى كاميرا النظام (لا تنطبق على رسائل الفيديو).</string>
+    <string name="CP_CameraAspectRatio">نسبة عرض الكاميرا</string>
+    <string name="CP_CameraAspectRatio_Desc">إن اختيار نسبة العرض للكاميرا ضروري لتسجيل رسائل الفيديو بجودة جيدة. تستخدم معظم الهواتف عادة نسبة جانب 16:9 بينما تستخدم الأجهزة الرئيسية 4:3 أو 1:1. اختبار كل منها، مقارنة جودة التسجيل واستخدام أفضل النسبة.</string>
+    <string name="CP_RearCam">استخدام الكاميرا الخلفية</string>
+    <string name="CP_RearCam_Desc">بدلاً من الكاميرا الأمامية لرسائل الفيديو</string>
+    <string name="CP_DisableCam">تعطيل الكاميرا في قائمة إرفاق الوسائط</string>
+    <string name="CP_DisableCam_Desc">تمكين إذا تأخرت قائمة إرفاق الوسائط</string>
+    <!--Camera Preferences-->
+    <!--Experimental Preferences-->
+    <string name="EP_Category_Experimental">تجريبي</string>
+    <string name="CG_ResidentNotification">إظهار إشعار دائم</string>
+    <string name="EP_PhotosSize">إرسال صور كبيرة (2560 بكسل)</string>
+    <string name="EP_ShowRPCError">عرض جميع أخطاء RPC</string>
+    <string name="EP_Network">الشبكة</string>
+    <string name="EP_DownloadSpeedBoost">زيادة سرعة التنزيل</string>
+    <string name="EP_DownloadSpeedBoostNone">إيقاف</string>
+    <string name="EP_DownloadSpeedBoostAverage">تشغيل</string>
+    <string name="EP_DownloadSpeedBoostExtreme">قصوى</string>
+    <string name="EP_UploadloadSpeedBoost">زيادة سرعة الرفع</string>
+    <string name="EP_SlowNetworkMode">وضع الشبكة البطيء</string>
+    <!--Experimental Preferences-->
+    <!--Security Preferences-->
+    <string name="SP_Header_Privacy">الخصوصية</string>
+    <string name="SP_NoProxyPromo">لا تظهر راعي الوكيل (البروكسي)</string>
+    <string name="SP_GoogleAnalytics_Desc">بتمكين هذا، سيتم إبلاغ جميع تعطل التطبيق والإحصاءات إلى \"console.firebase.google.com\" لمزيد من المراجعة من قبل المطور.</string>
+    <string name="SP_CleanOld">إزالة ذاكرة التخزين المؤقت القديمة (/sdcard/Telegram)</string>
+    <string name="SP_RemovedS">تمت إزالته بنجاح</string>
+    <string name="SP_Category_Account">الحساب</string>
+    <string name="SP_DeleteAccount">حذف حساب تيليجرام</string>
+    <!--Security Preferences-->
+    <!--Updates Preferences-->
+    <string name="UP_Category_Updates">التحديثات</string>
+    <string name="UP_TapToCheckUpdates">اضغط هنا للحصول على معلومات حول التحديثات</string>
+    <string name="UP_LastCheck">آخر تحقق</string>
+    <string name="UP_CurrentVersion">الاصدار الحالي</string>
+    <string name="UP_BuildType">نوع الانشاء</string>
+    <string name="UP_BTRelease">اسطبل</string>
+    <string name="UP_BTBeta">بيتا</string>
+    <string name="UP_InstallBetas">تثبيت إصدارات بيتا</string>
+    <string name="UP_Auto_OTA">التحقق عند التشغيل</string>
+    <string name="UP_ClearUpdatesCache">مسح التخزين المؤقت للتحديثات</string>
+    <string name="UP_ClearedUpdatesCache">تم مسح %1$s من ذاكرة التخزين المؤقت.</string>
+    <string name="UP_NothingToClear">لا شيء لمسحته.</string>
+    <string name="UP_CheckForUpdates">التحقق من وجود تحديثات</string>
+    <string name="UP_Not_Found">Cherrygram محدّث.</string>
+    <string name="UP_UpdateAvailable">تحديث متاح!</string>
+    <string name="UP_Version">الإصدار</string>
+    <string name="UP_UpdateSize">حجم التحديث</string>
+    <string name="UP_Changelog">سجل التغييرات:</string>
+    <string name="UP_Download">تحميل</string>
+    <!--Updates Preferences-->
+    <!--Donations-->
+    <string name="DP_Donate">تبرع</string>
+    <string name="DP_Donate_Method">اختر الطريقة</string>
+    <!--Donations-->
+    <!--Cherrygram screens-->
+</resources>

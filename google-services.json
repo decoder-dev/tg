@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "489182438055",
+    "project_id": "kuxurumtg",
+    "storage_bucket": "kuxurumtg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489182438055:android:ca95daad1422f4defc7182",
+        "android_client_info": {
+          "package_name": "org.telegram.messenger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfurGYEQUhYcLcVsPaBbnf2e5R3J45KfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489182438055:android:027379805fa1eceafc7182",
+        "android_client_info": {
+          "package_name": "org.telegram.messenger.beta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfurGYEQUhYcLcVsPaBbnf2e5R3J45KfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489182438055:android:0e85bfb7a8dfaf4dfc7182",
+        "android_client_info": {
+          "package_name": "org.telegram.messenger.kuxurum"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfurGYEQUhYcLcVsPaBbnf2e5R3J45KfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489182438055:android:7446cca66d5f588bfc7182",
+        "android_client_info": {
+          "package_name": "org.telegram.messenger.kuxurum.beta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfurGYEQUhYcLcVsPaBbnf2e5R3J45KfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
